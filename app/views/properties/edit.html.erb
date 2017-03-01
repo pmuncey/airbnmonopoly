@@ -60,7 +60,7 @@
           Pathway
         </label>
 
-        <input type="text" id="pathway_id" name="pathway_id" placeholder="Pathway" class="form-control" value="<%= @property.pathway_id %>">
+        <%= select_tag(:pathway_id, options_from_collection_for_select(Pathway.all, :id, :created_at, @property.pathway_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
