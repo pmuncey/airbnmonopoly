@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Joint_venture resource:
+  # CREATE
+  get "/joint_ventures/new", :controller => "joint_ventures", :action => "new"
+  post "/create_joint_venture", :controller => "joint_ventures", :action => "create"
+
+  # READ
+  get "/joint_ventures", :controller => "joint_ventures", :action => "index"
+  get "/joint_ventures/:id", :controller => "joint_ventures", :action => "show"
+
+  # UPDATE
+  get "/joint_ventures/:id/edit", :controller => "joint_ventures", :action => "edit"
+  post "/update_joint_venture/:id", :controller => "joint_ventures", :action => "update"
+
+  # DELETE
+  get "/delete_joint_venture/:id", :controller => "joint_ventures", :action => "destroy"
+  #------------------------------
+
   # Routes for the Pathway resource:
   # CREATE
   get "/pathways/new", :controller => "pathways", :action => "new"

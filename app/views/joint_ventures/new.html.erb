@@ -1,0 +1,37 @@
+<!-- Validation failure messages -->
+<% if @joint_venture.errors.any? %>
+  <% @joint_venture.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Joint Venture</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_joint_venture" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for investor_id -->
+      <div class="form-group">
+        <label for="investor_id" class="control-label">
+          Investor
+        </label>
+
+        <input type="text" id="investor_id" name="investor_id" placeholder="Investor" class="form-control" value="<%= @joint_venture.investor_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Joint Venture
+      </button>
+      or
+      <a href="/joint_ventures">Cancel</a>
+    </form>
+  </div>
+</div>
