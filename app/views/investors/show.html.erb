@@ -20,3 +20,158 @@
     </div>
   </div>
 </div>
+
+<!-- A Investor has many bookmarks -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Bookmarks
+      </li>
+
+      <% @investor.bookmarks.each do |bookmark| %>
+        <li class="list-group-item">
+          <a href="/bookmarks/<%= bookmark.id %>">
+            <%= bookmark.investor_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/bookmarks/<%= bookmark.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/bookmarks/<%= bookmark.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_bookmark/<%= bookmark.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Investor has many joint_venture_requests_sent -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Joint Venture Requests Sent
+      </li>
+
+      <% @investor.joint_venture_requests_sent.each do |joint_venture_request| %>
+        <li class="list-group-item">
+          <a href="/joint_venture_requests/<%= joint_venture_request.id %>">
+            <%= joint_venture_request.sender_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/joint_venture_requests/<%= joint_venture_request.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/joint_venture_requests/<%= joint_venture_request.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_joint_venture_request/<%= joint_venture_request.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Investor has many joint_venture_requests_received -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Joint Venture Requests Received
+      </li>
+
+      <% @investor.joint_venture_requests_received.each do |joint_venture_request| %>
+        <li class="list-group-item">
+          <a href="/joint_venture_requests/<%= joint_venture_request.id %>">
+            <%= joint_venture_request.sender_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/joint_venture_requests/<%= joint_venture_request.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/joint_venture_requests/<%= joint_venture_request.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_joint_venture_request/<%= joint_venture_request.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Investor has many joint_ventures -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Joint Ventures
+      </li>
+
+      <% @investor.joint_ventures.each do |joint_venture| %>
+        <li class="list-group-item">
+          <a href="/joint_ventures/<%= joint_venture.id %>">
+            <%= joint_venture.investor_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/joint_ventures/<%= joint_venture.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/joint_ventures/<%= joint_venture.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_joint_venture/<%= joint_venture.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Investor has many potential_investments -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Potential Investments
+      </li>
+
+      <% @investor.potential_investments.each do |property| %>
+        <li class="list-group-item">
+          <a href="/properties/<%= property.id %>">
+            <%= property.airbnb_price %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/properties/<%= property.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/properties/<%= property.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_property/<%= property.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
