@@ -1,5 +1,7 @@
 ActiveAdmin.register Property do
 
+ permit_params :airbnb_price, :listing_price, :sublease_price, :region_id, :pathway_id
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
