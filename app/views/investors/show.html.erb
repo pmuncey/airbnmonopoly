@@ -1,0 +1,22 @@
+<div class="page-header">
+  <h3>Investor #<%= @investor.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Email</dt>
+      <dd><%= @investor.email %></dd>
+
+      <dt>Password</dt>
+      <dd><%= @investor.password %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/investors" class="btn btn-primary">
+        Back
+      </a>
+    </div>
+  </div>
+</div>
