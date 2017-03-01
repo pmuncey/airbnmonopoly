@@ -1,6 +1,9 @@
 class Investor < ApplicationRecord
   # Direct associations
 
+  has_many   :joint_ventures,
+             :dependent => :destroy
+
   has_many   :joint_venture_requests_received,
              :class_name => "JointVentureRequest",
              :foreign_key => "receiver_id",
