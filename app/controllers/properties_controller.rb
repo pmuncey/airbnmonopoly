@@ -6,6 +6,7 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    @bookmark = Bookmark.new
     @property = Property.find(params[:id])
 
     render("properties/show.html.erb")

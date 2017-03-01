@@ -6,6 +6,7 @@ class JointVenturesController < ApplicationController
   end
 
   def show
+    @bookmark = Bookmark.new
     @joint_venture = JointVenture.find(params[:id])
 
     render("joint_ventures/show.html.erb")

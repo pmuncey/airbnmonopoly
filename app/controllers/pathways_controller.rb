@@ -6,6 +6,8 @@ class PathwaysController < ApplicationController
   end
 
   def show
+    @property = Property.new
+    @bookmark = Bookmark.new
     @pathway = Pathway.find(params[:id])
 
     render("pathways/show.html.erb")

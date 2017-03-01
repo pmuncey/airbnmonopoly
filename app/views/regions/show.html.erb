@@ -66,6 +66,56 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_property" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for airbnb_price -->
+      <div class="form-group">
+        <label for="airbnb_price" class="control-label">
+          Airbnb price
+        </label>
+
+        <input type="text" id="airbnb_price" name="airbnb_price" placeholder="Airbnb price" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for listing_price -->
+      <div class="form-group">
+        <label for="listing_price" class="control-label">
+          Listing price
+        </label>
+
+        <input type="text" id="listing_price" name="listing_price" placeholder="Listing price" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for sublease_price -->
+      <div class="form-group">
+        <label for="sublease_price" class="control-label">
+          Sublease price
+        </label>
+
+        <input type="text" id="sublease_price" name="sublease_price" placeholder="Sublease price" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for region_id -->
+      <input type="hidden" name="region_id" value="<%= @region.id %>">
+
+      <!-- Label and input for pathway_id -->
+      <div class="form-group">
+        <label for="pathway_id" class="control-label">
+          Pathway
+        </label>
+
+        <%= select_tag(:pathway_id, options_from_collection_for_select(Pathway.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Property
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
