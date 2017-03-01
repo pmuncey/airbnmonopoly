@@ -24,7 +24,7 @@
           Investor
         </label>
 
-        <input type="text" id="investor_id" name="investor_id" placeholder="Investor" class="form-control" value="<%= @joint_venture.investor_id %>">
+        <%= select_tag(:investor_id, options_from_collection_for_select(Investor.all, :id, :created_at, @joint_venture.investor_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
