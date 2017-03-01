@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @region.errors.any? %>
+  <% @region.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Region #<%= @region.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_region/<%= @region.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for country -->
+      <div class="form-group">
+        <label for="country" class="control-label">
+          Country
+        </label>
+
+        <input type="text" id="country" name="country" placeholder="Country" class="form-control" value="<%= @region.country %>">
+      </div>
+
+      <!-- Label and input for state -->
+      <div class="form-group">
+        <label for="state" class="control-label">
+          State
+        </label>
+
+        <input type="text" id="state" name="state" placeholder="State" class="form-control" value="<%= @region.state %>">
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @region.city %>">
+      </div>
+
+      <!-- Label and input for neighborhood -->
+      <div class="form-group">
+        <label for="neighborhood" class="control-label">
+          Neighborhood
+        </label>
+
+        <input type="text" id="neighborhood" name="neighborhood" placeholder="Neighborhood" class="form-control" value="<%= @region.neighborhood %>">
+      </div>
+
+      <!-- Label and input for latitude -->
+      <div class="form-group">
+        <label for="latitude" class="control-label">
+          Latitude
+        </label>
+
+        <input type="text" id="latitude" name="latitude" placeholder="Latitude" class="form-control" value="<%= @region.latitude %>">
+      </div>
+
+      <!-- Label and input for longitude -->
+      <div class="form-group">
+        <label for="longitude" class="control-label">
+          Longitude
+        </label>
+
+        <input type="text" id="longitude" name="longitude" placeholder="Longitude" class="form-control" value="<%= @region.longitude %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Region
+      </button>
+      or
+      <a href="/regions/<%= @region.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
