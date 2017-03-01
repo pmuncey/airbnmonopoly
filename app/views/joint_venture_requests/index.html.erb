@@ -17,7 +17,7 @@
       <% @joint_venture_requests.each do |joint_venture_request| %>
       <tr>
         <td><%= joint_venture_request.sender.created_at %></td>
-        <td><%= joint_venture_request.receiver_id %></td>
+        <td><%= joint_venture_request.receiver.created_at %></td>
         <td>
           <a href="/joint_venture_requests/<%= joint_venture_request.id %>" class="btn btn-primary">Show</a>
           <a href="/joint_venture_requests/<%= joint_venture_request.id %>/edit" class="btn btn-warning">Edit</a>
