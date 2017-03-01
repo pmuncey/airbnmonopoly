@@ -51,7 +51,7 @@
           Region
         </label>
 
-        <input type="text" id="region_id" name="region_id" placeholder="Region" class="form-control" value="<%= @property.region_id %>">
+        <%= select_tag(:region_id, options_from_collection_for_select(Region.all, :id, :country, @property.region_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for pathway_id -->
