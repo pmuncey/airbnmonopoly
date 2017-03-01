@@ -1,6 +1,8 @@
 class Bookmark < ApplicationRecord
   # Direct associations
 
+  belongs_to :joint_venture
+
   belongs_to :pathway
 
   belongs_to :property
