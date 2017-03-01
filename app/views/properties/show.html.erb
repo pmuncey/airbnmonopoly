@@ -15,10 +15,22 @@
       <dd><%= @property.sublease_price %></dd>
 
       <dt>Region</dt>
-      <dd><%= @property.region_id %></dd>
+      <dd>
+        <% if @property.region.present? %>
+          <a href="/regions/<%= @property.region_id %>">
+            <%= @property.region.country %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Pathway</dt>
-      <dd><%= @property.pathway_id %></dd>
+      <dd>
+        <% if @property.pathway.present? %>
+          <a href="/pathways/<%= @property.pathway_id %>">
+            <%= @property.pathway.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

@@ -15,7 +15,13 @@
 
       <% @joint_ventures.each do |joint_venture| %>
       <tr>
-        <td><%= joint_venture.investor.created_at %></td>
+        <td>
+          <% if joint_venture.investor.present? %>
+            <a href="/investors/<%= joint_venture.investor.id %>">
+              <%= joint_venture.investor.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/joint_ventures/<%= joint_venture.id %>" class="btn btn-primary">Show</a>
           <a href="/joint_ventures/<%= joint_venture.id %>/edit" class="btn btn-warning">Edit</a>

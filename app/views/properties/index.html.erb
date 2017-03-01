@@ -22,8 +22,20 @@
         <td><%= property.airbnb_price %></td>
         <td><%= property.listing_price %></td>
         <td><%= property.sublease_price %></td>
-        <td><%= property.region.country %></td>
-        <td><%= property.pathway.created_at %></td>
+        <td>
+          <% if property.region.present? %>
+            <a href="/regions/<%= property.region.id %>">
+              <%= property.region.country %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if property.pathway.present? %>
+            <a href="/pathways/<%= property.pathway.id %>">
+              <%= property.pathway.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/properties/<%= property.id %>" class="btn btn-primary">Show</a>
           <a href="/properties/<%= property.id %>/edit" class="btn btn-warning">Edit</a>

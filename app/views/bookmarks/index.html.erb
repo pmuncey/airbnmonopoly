@@ -18,10 +18,34 @@
 
       <% @bookmarks.each do |bookmark| %>
       <tr>
-        <td><%= bookmark.user.created_at %></td>
-        <td><%= bookmark.property.airbnb_price %></td>
-        <td><%= bookmark.pathway.created_at %></td>
-        <td><%= bookmark.joint_venture.investor_id %></td>
+        <td>
+          <% if bookmark.user.present? %>
+            <a href="/investors/<%= bookmark.user.id %>">
+              <%= bookmark.user.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if bookmark.property.present? %>
+            <a href="/properties/<%= bookmark.property.id %>">
+              <%= bookmark.property.airbnb_price %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if bookmark.pathway.present? %>
+            <a href="/pathways/<%= bookmark.pathway.id %>">
+              <%= bookmark.pathway.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if bookmark.joint_venture.present? %>
+            <a href="/joint_ventures/<%= bookmark.joint_venture.id %>">
+              <%= bookmark.joint_venture.investor_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/bookmarks/<%= bookmark.id %>" class="btn btn-primary">Show</a>
           

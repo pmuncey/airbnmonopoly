@@ -6,16 +6,40 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Investor</dt>
-      <dd><%= @bookmark.investor_id %></dd>
+      <dd>
+        <% if @bookmark.user.present? %>
+          <a href="/investors/<%= @bookmark.investor_id %>">
+            <%= @bookmark.user.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Property</dt>
-      <dd><%= @bookmark.property_id %></dd>
+      <dd>
+        <% if @bookmark.property.present? %>
+          <a href="/properties/<%= @bookmark.property_id %>">
+            <%= @bookmark.property.airbnb_price %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Pathway</dt>
-      <dd><%= @bookmark.pathway_id %></dd>
+      <dd>
+        <% if @bookmark.pathway.present? %>
+          <a href="/pathways/<%= @bookmark.pathway_id %>">
+            <%= @bookmark.pathway.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Joint venture</dt>
-      <dd><%= @bookmark.joint_venture_id %></dd>
+      <dd>
+        <% if @bookmark.joint_venture.present? %>
+          <a href="/joint_ventures/<%= @bookmark.joint_venture_id %>">
+            <%= @bookmark.joint_venture.investor_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
