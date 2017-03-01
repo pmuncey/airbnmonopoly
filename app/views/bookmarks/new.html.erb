@@ -24,7 +24,7 @@
           Investor
         </label>
 
-        <input type="text" id="investor_id" name="investor_id" placeholder="Investor" class="form-control" value="<%= @bookmark.investor_id %>">
+        <%= select_tag(:investor_id, options_from_collection_for_select(Investor.all, :id, :created_at, @bookmark.investor_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for property_id -->
