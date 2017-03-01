@@ -19,13 +19,7 @@
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
       <!-- Label and input for investor_id -->
-      <div class="form-group">
-        <label for="investor_id" class="control-label">
-          Investor
-        </label>
-
-        <%= select_tag(:investor_id, options_from_collection_for_select(Investor.all, :id, :created_at, @bookmark.investor_id), :class => "form-control") %>
-      </div>
+      <input type="hidden" name="investor_id" value="<%= current_user.id %>">
 
       <!-- Label and input for property_id -->
       <div class="form-group">
