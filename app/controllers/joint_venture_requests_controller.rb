@@ -10,7 +10,7 @@ class JointVentureRequestsController < ApplicationController
   end
 
   def index
-    @joint_venture_requests = JointVentureRequest.all
+    @joint_venture_requests = current_user.joint_venture_requests_sent.page(params[:page]).per(10)
 
     render("joint_venture_requests/index.html.erb")
   end
