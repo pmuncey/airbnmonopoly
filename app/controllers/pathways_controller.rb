@@ -1,6 +1,7 @@
 class PathwaysController < ApplicationController
   def index
-    @pathways = Pathway.page(params[:page]).per(10)
+    @q = Pathway.ransack(params[:q])
+    @pathways = @q.result(:distinct => true).includes(:bookmarks, :properties).page(params[:page]).per(10)
 
     render("pathways/index.html.erb")
   end

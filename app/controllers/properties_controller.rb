@@ -1,6 +1,7 @@
 class PropertiesController < ApplicationController
   def index
-    @properties = Property.page(params[:page]).per(10)
+    @q = Property.ransack(params[:q])
+    @properties = @q.result(:distinct => true).includes(:bookmarks, :region, :pathway, :users, :joint_ventures).page(params[:page]).per(10)
 
     render("properties/index.html.erb")
   end

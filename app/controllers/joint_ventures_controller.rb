@@ -1,6 +1,7 @@
 class JointVenturesController < ApplicationController
   def index
-    @joint_ventures = JointVenture.page(params[:page]).per(10)
+    @q = JointVenture.ransack(params[:q])
+    @joint_ventures = @q.result(:distinct => true).includes(:investor, :bookmarks, :properties).page(params[:page]).per(10)
 
     render("joint_ventures/index.html.erb")
   end
