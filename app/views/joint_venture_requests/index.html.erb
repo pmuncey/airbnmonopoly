@@ -20,8 +20,11 @@
         <td><%= joint_venture_request.receiver.created_at %></td>
         <td>
           <a href="/joint_venture_requests/<%= joint_venture_request.id %>" class="btn btn-primary">Show</a>
-          <a href="/joint_venture_requests/<%= joint_venture_request.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_joint_venture_request/<%= joint_venture_request.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == joint_venture_request.sender %>
+            <a href="/joint_venture_requests/<%= joint_venture_request.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_joint_venture_request/<%= joint_venture_request.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

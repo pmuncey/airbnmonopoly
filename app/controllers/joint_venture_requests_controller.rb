@@ -1,4 +1,14 @@
 class JointVentureRequestsController < ApplicationController
+  before_action :current_user_must_be_joint_venture_request_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_joint_venture_request_investor
+    joint_venture_request = JointVentureRequest.find(params[:id])
+
+    unless current_user == joint_venture_request.sender
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @joint_venture_requests = JointVentureRequest.all
 
