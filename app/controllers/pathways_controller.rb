@@ -1,6 +1,6 @@
 class PathwaysController < ApplicationController
   def index
-    @pathways = Pathway.all
+    @pathways = Pathway.page(params[:page]).per(10)
 
     render("pathways/index.html.erb")
   end

@@ -1,6 +1,6 @@
 class JointVenturesController < ApplicationController
   def index
-    @joint_ventures = JointVenture.all
+    @joint_ventures = JointVenture.page(params[:page]).per(10)
 
     render("joint_ventures/index.html.erb")
   end
