@@ -19,6 +19,10 @@ class Investor < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :potential_investments,
+             :through => :bookmarks,
+             :source => :property
+
   # Validations
 
   # Include default devise modules. Others available are:
