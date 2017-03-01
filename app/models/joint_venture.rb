@@ -8,6 +8,10 @@ class JointVenture < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :properties,
+             :through => :bookmarks,
+             :source => :property
+
   # Validations
 
 end

@@ -10,6 +10,10 @@ class Property < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :joint_ventures,
+             :through => :bookmarks,
+             :source => :joint_venture
+
   has_many   :users,
              :through => :bookmarks,
              :source => :user
