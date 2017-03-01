@@ -51,7 +51,7 @@
           Joint venture
         </label>
 
-        <input type="text" id="joint_venture_id" name="joint_venture_id" placeholder="Joint venture" class="form-control" value="<%= @bookmark.joint_venture_id %>">
+        <%= select_tag(:joint_venture_id, options_from_collection_for_select(JointVenture.all, :id, :investor_id, @bookmark.joint_venture_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
