@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "properties#index"
   # Routes for the Joint_venture_request resource:
   # CREATE
   get "/joint_venture_requests/new", :controller => "joint_venture_requests", :action => "new"
