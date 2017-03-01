@@ -1,0 +1,26 @@
+<div class="page-header">
+  <h1>
+    Pathways
+    <a href="/pathways/new" class="btn btn-lg btn-success">New Pathway</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Actions</th>
+      </tr>
+
+      <% @pathways.each do |pathway| %>
+      <tr>
+        <td>
+          <a href="/pathways/<%= pathway.id %>" class="btn btn-primary">Show</a>
+          <a href="/pathways/<%= pathway.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_pathway/<%= pathway.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

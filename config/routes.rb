@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Pathway resource:
+  # CREATE
+  get "/pathways/new", :controller => "pathways", :action => "new"
+  post "/create_pathway", :controller => "pathways", :action => "create"
+
+  # READ
+  get "/pathways", :controller => "pathways", :action => "index"
+  get "/pathways/:id", :controller => "pathways", :action => "show"
+
+  # UPDATE
+  get "/pathways/:id/edit", :controller => "pathways", :action => "edit"
+  post "/update_pathway/:id", :controller => "pathways", :action => "update"
+
+  # DELETE
+  get "/delete_pathway/:id", :controller => "pathways", :action => "destroy"
+  #------------------------------
+
   # Routes for the Bookmark resource:
   # CREATE
   get "/bookmarks/new", :controller => "bookmarks", :action => "new"
