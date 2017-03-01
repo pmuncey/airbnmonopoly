@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @bookmark.errors.any? %>
+  <% @bookmark.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Bookmark</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_bookmark" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for investor_id -->
+      <div class="form-group">
+        <label for="investor_id" class="control-label">
+          Investor
+        </label>
+
+        <input type="text" id="investor_id" name="investor_id" placeholder="Investor" class="form-control" value="<%= @bookmark.investor_id %>">
+      </div>
+
+      <!-- Label and input for property_id -->
+      <div class="form-group">
+        <label for="property_id" class="control-label">
+          Property
+        </label>
+
+        <input type="text" id="property_id" name="property_id" placeholder="Property" class="form-control" value="<%= @bookmark.property_id %>">
+      </div>
+
+      <!-- Label and input for pathway_id -->
+      <div class="form-group">
+        <label for="pathway_id" class="control-label">
+          Pathway
+        </label>
+
+        <input type="text" id="pathway_id" name="pathway_id" placeholder="Pathway" class="form-control" value="<%= @bookmark.pathway_id %>">
+      </div>
+
+      <!-- Label and input for joint_venture_id -->
+      <div class="form-group">
+        <label for="joint_venture_id" class="control-label">
+          Joint venture
+        </label>
+
+        <input type="text" id="joint_venture_id" name="joint_venture_id" placeholder="Joint venture" class="form-control" value="<%= @bookmark.joint_venture_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Bookmark
+      </button>
+      or
+      <a href="/bookmarks">Cancel</a>
+    </form>
+  </div>
+</div>
